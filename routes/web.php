@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontPage');
+
 });
+Route::resource('/producs', 'ProductController');//->middleware('auth');
+Route::resource('/stores', 'StoreController');
+Route::resource('/reviews', 'ReviewController');
+//Route::get('/producs/create','ProductController@create')->middleware('auth');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
